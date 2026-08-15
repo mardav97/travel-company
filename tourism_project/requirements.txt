@@ -1,6 +1,3 @@
 
-streamlit
-pandas
-scikit-learn
-xgboost
-joblib
+- name: Install Dependencies
+  run: pip install -r tourism_project/deployment/requirements.txt
