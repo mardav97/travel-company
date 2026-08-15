@@ -20,10 +20,10 @@ import mlflow.sklearn
 from mlflow.models.signature import infer_signature
 
 MODEL_PATH = 'tourism_project/deployment/best_model.pkl'
-xtrain = pd.read_csv('xtrain.csv')
-xtest = pd.read_csv('xtest.csv')
-ytrain = pd.read_csv('ytrain.csv')
-ytest = pd.read_csv('ytest.csv')
+xtrain = pd.read_csv('tourism_project/data/xtrain.csv')
+xtest = pd.read_csv('tourism_project/data/xtest.csv')
+ytrain = pd.read_csv('tourism_project/data/ytrain.csv')
+ytest = pd.read_csv('tourism_project/data/ytest.csv')
 
 signature = infer_signature(xtrain, ytrain)
 
