@@ -17,6 +17,7 @@ import joblib
 # mlflow libraries
 import mlflow
 import mlflow.sklearn
+import mlflow.xgboost
 from mlflow.models.signature import infer_signature
 
 MODEL_PATH = 'tourism_project/deployment/best_model.pkl'
@@ -73,11 +74,12 @@ with mlflow.start_run():
     mlflow.log_metric("f1_score", f1)
 
     # Log model to MLflow
-    mlflow.sklearn.log_model(
-        best_model,
+    mlflow.xgboost.log_model(
+        xgb_model = best_model,
         name="model",
         signature = signature,
-        input_example=xtrain[:5]
+        input_example=xtrain[:5],
+        model_format="json"
     )
 
     print("Best parameters:", grid_search.best_params_)
